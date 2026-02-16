@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Inventory Dashboard</h2>
+
+  <!-- Metrics -->
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Total Products</h5>
+          <h3>{{ totalProducts }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-warning h-100">
+        <div class="card-body">
+          <h5 class="card-title">Low Stock Products</h5>
+          <h3>{{ lowStockProducts }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-success h-100">
+        <div class="card-body">
+          <h5 class="card-title">Total Orders</h5>
+          <h3>{{ totalOrders }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inventory Table -->
+  <div class="card">
+    <div class="card-header bg-info text-white">
+      <h5 class="mb-0">Inventory Details</h5>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped mb-0">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Stock Available</th>
+              <th>Reorder Stock</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of inventory">
+              <td>{{ item.id }}</td>
+              <td>{{ item.productName }}</td>
+              <td>{{ item.stockAvailable }}</td>
+              <td>{{ item.reorderStock }}</td>
+              <td>
+                <span class="badge" [ngClass]="item.stockAvailable < item.reorderStock ? 'bg-danger' : 'bg-success'">
+                  {{ item.stockAvailable < item.reorderStock ? 'Low Stock' : 'OK' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
