@@ -18,6 +18,7 @@ import { SupplierComponent } from './features/supplier/supplier.component';
 import { SalesComponent } from './features/sales/sales.component';
 import { UsersComponent } from './features/users/users.component';
 import { ReportsComponent } from './features/reports/reports.component';
+import { PurchasesComponent } from './features/purchases/purchases.component';
 
 
 providers: [
@@ -37,9 +38,6 @@ providers: [
     ConfirmationModalComponent,
     DashboardComponent,
     CategoryComponent,
-    
-    CustomerComponent,
-    SupplierComponent,
     SalesComponent,
     UsersComponent,
     ReportsComponent
@@ -48,7 +46,10 @@ providers: [
     BrowserModule,
     AppRoutingModule,
     SidebarComponent,
-    ProductComponent
+    CustomerComponent,
+    ProductComponent,
+    SupplierComponent,
+    PurchasesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

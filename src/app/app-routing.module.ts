@@ -11,6 +11,7 @@ import { UsersComponent } from './features/users/users.component';
 import { ReportsComponent } from './features/reports/reports.component';
 
 import { roleGuard } from './core/guards/role.guard';
+import { PurchasesComponent } from './features/purchases/purchases.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'customers',
     component: CustomerComponent
+  },
+  {
+    path: 'purchases',
+    component: PurchasesComponent
   },
   {
     path: 'suppliers',

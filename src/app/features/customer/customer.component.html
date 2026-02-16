@@ -1,1 +1,150 @@
-<p>customer works!</p>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <input type="text"
+             class="form-control shadow-sm"
+             placeholder="Search customer..."
+             >
+    </div>
+  </div>
+</div>
+
+<h3>Customer List:</h3>
+
+<!-- Add New Button -->
+<button class="btn btn-primary float-end" (click)="openModel()">Add new</button>
+
+<!-- Modal -->
+<div #customerModal class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content shadow">
+
+      <!-- Header -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Customer Details</h5>
+        <button type="button" class="btn-close btn-close-white"
+                (click)="closeModal()"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <form #customerForm="ngForm">
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text"
+                   class="form-control"
+                   name="name"
+                   [(ngModel)]="customer.name"
+                   required>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="tel"
+                   class="form-control"
+                   name="phone"
+                   [(ngModel)]="customer.phone"
+                   required>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email"
+                   class="form-control"
+                   name="email"
+                   [(ngModel)]="customer.email"
+                   required>
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control"
+                      name="address"
+                      rows="3"
+                      [(ngModel)]="customer.address"
+                      required></textarea>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeModal()">
+          Close
+        </button>
+        <button class="btn btn-success"
+                (click)="saveCustomer(customerForm)">
+          Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="row justify-content-center">
+<table class="table table-hover text-center mt-5 table-bordered ">
+  <thead class="table-dark">
+    <tr>
+      <th style="width:5%;">Sr.No</th>
+      <th style="width:15%;">Name</th>
+      <th style="width:15%;">Phone</th>
+      <th style="width:25%;">Email</th>
+      <th style="width:25%;">Address</th>
+      <th style="width:10%;">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Ramesh</td>
+      <td>9834569823</td>
+      <td>ramesh@gmail.com</td>
+      <td>Bhavnagar</td>
+
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Rahul</td>
+      <td>6785390854</td>
+      <td>rahul@gmail.com</td>
+      <td>Ahmedabad</td>
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>3</td>
+       <td>Rohan</td>
+      <td>8954678909</td>
+      <td>rohan@gmail.com</td>
+      <td>Vadodara</td>
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+</div>

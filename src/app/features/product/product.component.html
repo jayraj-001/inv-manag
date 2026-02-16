@@ -1,28 +1,89 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <input type="text"
+             class="form-control shadow-sm"
+             placeholder="Search products..."
+             >
+    </div>
+  </div>
+</div>
+
 <h3>Product List:</h3>
 
 <!-- Add New Button -->
-<button class="btn btn-primary float-end" >Add new</button>
+<button class="btn btn-primary float-end" (click)="openModel()">Add new</button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class="modal fade" id="myModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content shadow-lg">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Add Category</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <!-- Header -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Add Product</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
 
-      <!-- Modal Body -->
+      <!-- Body -->
       <div class="modal-body">
-        <label id="add">Add Category:</label>
-        <input type="text" placeholder="Enter catogoty">
+        <form #productForm="ngForm">
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text"
+                   class="form-control"
+                   name="name"
+                   [(ngModel)]="product.name"
+                   required>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label>Price</label>
+            <input type="number"
+                   class="form-control"
+                   name="price"
+                   [(ngModel)]="product.price"
+                   required>
+          </div>
+
+          <!-- Category -->
+          <div class="mb-3">
+            <label>Category</label>
+            <select class="form-select"
+                    name="category"
+                    [(ngModel)]="product.category"
+                    required>
+              <option value="" disabled selected>Select Category</option>
+              <option>Electronics</option>
+              <option>Clothing</option>
+              <option>Furniture</option>
+              <option>Groceries</option>
+            </select>
+          </div>
+
+          <!-- Image -->
+          <div class="mb-3">
+            <label>Image</label>
+            <input type="file"
+                   class="form-control"
+                   (change)="onFileSelect($event)"
+                   required>
+          </div>
+
+        </form>
       </div>
 
-      <!-- Modal Footer -->
+      <!-- Footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Add</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-success" (click)="saveProduct(productForm)"  >
+          Save
+        </button>
       </div>
 
     </div>
@@ -32,47 +93,58 @@
 
 
 
-<table class="table table-hover mt-5 ">
-    <thead>
-      <tr>
-        <th>Sr.No</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Parle-G</td>
-        <td>Biscuit</td>
-        <td>&#8377;10</td>
+<div class="row justify-content-center">
+<table class="table table-hover text-center mt-5 table-bordered ">
+  <thead class="table-dark">
+    <tr>
+      <th style="width:5%;">Sr.No</th>
+      <th style="width:35%;">Name</th>
+      <th style="width:30%;">Category</th>
+      <th style="width:10%;">Price</th>
+      <th style="width:10%;">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Parle-G</td>
+      <td>Grossary</td>
+      <td>&#8377;10</td>
 
-        <button class="btn btn-primary d-flex justify-content-between align-items-center ">
-<td><i class="bi bi-pencil-square"> &nbsp;&nbsp;&nbsp; </i> <i class="bi bi-trash"></i></td>
-</button>
-              
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Dove Shampoo</td>
-        <td>Shampoo</td>
-        <td>&#8377;100</td>
-        <button class="btn btn-primary d-flex justify-content-between align-items-center ">
-<td><i class="bi bi-pencil-square"> &nbsp;&nbsp;&nbsp; </i> <i class="bi bi-trash"></i></td>
-</button>
-        
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>coco-cola</td>
-        <td>Cold-drink</td>
-        <td>&#8377;100</td>
-                <button class="btn btn-primary d-flex justify-content-between align-items-center ">
-<td><i class="bi bi-pencil-square"> &nbsp;&nbsp;&nbsp; </i> <i class="bi bi-trash"></i></td>
-</button>
-        
-      </tr>
-    </tbody>
-  </table>
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Wooden chair</td>
+      <td>Furniture</td>
+      <td>&#8377;5,000</td>
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Galaxy s25</td>
+      <td>Electronics</td>
+      <td>&#8377;1,29,000</td>
+      <td>
+      <button class="btn btn-warning ">
+        <i class="bi bi-pencil-square"> </i> 
+      </button>&nbsp; 
+      <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
