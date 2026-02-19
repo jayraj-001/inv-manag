@@ -49,6 +49,16 @@
                    required>
           </div>
 
+          <!-- Stock quantity -->
+          <div class="mb-3">
+            <label>Stock quantity</label>
+            <input type="number"
+                   class="form-control"
+                   name="price"
+                   [(ngModel)]="product.price"
+                   required>
+          </div>
+
           <!-- Category -->
           <div class="mb-3">
             <label>Category</label>
@@ -99,8 +109,9 @@
     <tr>
       <th style="width:5%;">Sr.No</th>
       <th style="width:35%;">Name</th>
+      <th style="width:20%;">Stock quantity</th>
       <th style="width:30%;">Category</th>
-      <th style="width:10%;">Price</th>
+      <th style="width:15%;">Price</th>
       <th style="width:10%;">Action</th>
     </tr>
   </thead>
@@ -108,6 +119,7 @@
     <tr>
       <td>1</td>
       <td>Parle-G</td>
+      <td>150</td>
       <td>Grossary</td>
       <td>&#8377;10</td>
 
@@ -122,6 +134,7 @@
     <tr>
       <td>2</td>
       <td>Wooden chair</td>
+      <td>6</td>
       <td>Furniture</td>
       <td>&#8377;5,000</td>
       <td>
@@ -135,6 +148,7 @@
     <tr>
       <td>3</td>
       <td>Galaxy s25</td>
+      <td>21</td>
       <td>Electronics</td>
       <td>&#8377;1,29,000</td>
       <td>

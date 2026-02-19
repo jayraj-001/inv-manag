@@ -1,45 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-
-
-interface InventoryItem {
-  id: number;
-  productName: string;
-  stockAvailable: number;
-  reorderStock: number;
-}
-
+import { Component, AfterViewInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
 
-  totalProducts: number = 0;
-  lowStockProducts: number = 0;
-  totalOrders: number = 0;
 
-  inventory: InventoryItem[] = [];
-  constructor() { }
+export class DashboardComponent implements AfterViewInit {
 
-  ngOnInit(): void {
-    // Dummy inventory data
-    this.inventory = [
-      { id: 1, productName: 'Galaxy S25 Ultra', stockAvailable: 20, reorderStock: 50 },
-      { id: 2, productName: 'iPhone 16', stockAvailable: 10, reorderStock: 40 },
-      { id: 3, productName: 'OnePlus 12', stockAvailable: 5, reorderStock: 30 },
-      { id: 4, productName: 'Pixel 12 Pro', stockAvailable: 25, reorderStock: 50 },
-    ];
+  ngAfterViewInit(): void {
+    Chart.register(...registerables);
 
-    this.calculateMetrics();
+    new Chart('stockChart', {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          label: 'Stock Movement',
+          data: [50, 60, 55, 70, 65],
+          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
   }
-
-
-  calculateMetrics(): void {
-    this.totalProducts = this.inventory.length;
-    this.lowStockProducts = this.inventory.filter(item => item.stockAvailable < item.reorderStock).length;
-    this.totalOrders = 120; // This can be fetched from a backend API later
-  }
-
 }

@@ -3,15 +3,134 @@
     <div class="col-md-6">
       <input type="text"
              class="form-control shadow-sm"
-             placeholder="Search customer..."
+             placeholder="Search here..."
              >
     </div>
   </div>
 </div>
 
-<h3>Supplier List:</h3>
+<h3>Purchase List:</h3>
+
+<!-- Add New Button -->
+<button class="btn btn-primary float-end" (click)="openModel()">Add new</button>
+
+<!-- Modal -->
+<div *ngIf="isModalOpen"
+     class="modal fade show d-block custom-modal"
+     tabindex="-1">
+
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">New Sale</h5>
+        <button class="btn-close"
+          (click)="closeModal()">
+        </button>
+
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+
+        <!-- Filters -->
+        <div class="row mb-4">
+          <div class="col-md-3">
+            <input type="text"
+               class="form-control"
+               placeholder="Search product..."
+               [(ngModel)]="searchText">
+
+          </div>
+          <div class="col-md-3">
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-md-3">
+            <select class="form-select">
+              <option>Select Customer</option>
+              <option>Customer 1</option>
+            </select>
+          </div>
+          <div class="col-md-3 text-end">
+            <button class="btn btn-primary px-4 me-2">Save</button>
+            <button class="btn btn-danger px-4" (click)="clearCart()">Clear</button>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <!-- Products Section -->
+          <div class="col-md-8">
+            <div class="row g-4">
+              <div class="col-md-3" *ngFor="let product of filteredProducts">
 
 
+                <div class="card product-card shadow-sm"
+                     (click)="addToCart(product)">
+                  <img [src]="product.image"
+                       class="card-img-top p-3"
+                       height="120">
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">{{product.name}}</h6>
+                    <p class="text-muted mb-0">
+                      ₹ {{product.price}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Section -->
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+
+              <div class="card-header bg-primary text-white d-flex justify-content-between">
+                <span>Grand Total</span>
+                <span>₹ {{grandTotal}}</span>
+              </div>
+
+              <div class="card-body p-0">
+
+                <table class="table table-sm mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Product</th>
+                      <th>Qty</th>
+                      <th>Price</th>
+                      <th>Amount</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of cart">
+                      <td>{{item.product.name}}</td>
+                      <td>{{item.qty}}</td>
+                      <td>{{item.product.price}}</td>
+                      <td>
+                        {{item.product.price * item.qty}}
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-danger"
+                                (click)="removeItem(item)">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <div class="row justify-content-center">

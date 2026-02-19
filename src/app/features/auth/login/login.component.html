@@ -1,0 +1,71 @@
+<div class="login-wrapper">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-lg-8">
+        <div class="login-card">
+
+          <!-- LEFT SIDE -->
+          <div class="login-left">
+            <div class="brand">
+              <i class="bi bi-box-seam display-4"></i>
+              <h2>InventoryPro</h2>
+              <p>
+                Smart inventory management solution for modern businesses.
+                Track products, manage sales & grow faster.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE -->
+          <div class="login-right">
+            <h3 class="mb-4 fw-bold">Welcome Back 👋</h3>
+
+            <form>
+
+              <!-- Email -->
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" placeholder="Email">
+                <label><i class="bi bi-envelope me-2"></i>Email Address</label>
+              </div>
+
+              <!-- Password -->
+              <div class="form-floating mb-3 position-relative">
+                <input [type]="showPassword ? 'text' : 'password'"
+                       class="form-control"
+                       placeholder="Password">
+                <label><i class="bi bi-lock me-2"></i>Password</label>
+
+                <i class="bi toggle-password"
+                   [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+                   (click)="togglePassword()"></i>
+              </div>
+
+              <!-- Remember -->
+              <div class="d-flex justify-content-between mb-3 small">
+                <div>
+                  <input type="checkbox" class="form-check-input me-1">
+                  Remember Me
+                </div>
+                <a routerLink="/forgot-password">Forgot Password?</a>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-primary w-100 login-btn">
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Login
+              </button>
+
+              <!-- Register -->
+              <div class="text-center mt-4 small">
+                Don't have an account?
+                <a routerLink="/register" class="fw-bold">Register</a>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,8 @@ import { SupplierComponent } from './features/supplier/supplier.component';
 import { SalesComponent } from './features/sales/sales.component';
 import { UsersComponent } from './features/users/users.component';
 import { ReportsComponent } from './features/reports/reports.component';
-
+import { LoginComponent } from './features/auth/login/login.component';
+import { RegisterComponent } from './features/auth/register/register.component';
 import { roleGuard } from './core/guards/role.guard';
 import { PurchasesComponent } from './features/purchases/purchases.component';
 
@@ -52,6 +53,14 @@ const routes: Routes = [
   {
     path: 'reports',
     component: ReportsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
 
   { path: '**', redirectTo: '' }

@@ -1,0 +1,112 @@
+<div class="register-wrapper">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-lg-10">
+        <div class="register-card">
+
+          <!-- LEFT PANEL -->
+          <div class="register-left">
+            <div>
+              <i class="bi bi-building display-4"></i>
+              <h2>Join InventoryPro</h2>
+              <p>
+                Manage your inventory efficiently and grow your business
+                with our smart management system.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANEL -->
+          <div class="register-right">
+            <h3 class="fw-bold mb-4">Create Business Account 🚀</h3>
+
+            <form>
+
+              <div class="row">
+
+                <!-- Full Name -->
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Full Name">
+                    <label><i class="bi bi-person me-2"></i>Full Name</label>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" placeholder="Email">
+                    <label><i class="bi bi-envelope me-2"></i>Email</label>
+                  </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="tel" class="form-control" placeholder="Phone">
+                    <label><i class="bi bi-telephone me-2"></i>Phone Number</label>
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-6 mb-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Address">
+                    <label><i class="bi bi-geo-alt me-2"></i>Address</label>
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div class="col-md-6 mb-3 position-relative">
+                  <div class="form-floating">
+                    <input [type]="showPassword ? 'text' : 'password'"
+                           class="form-control"
+                           placeholder="Password">
+                    <label><i class="bi bi-lock me-2"></i>Password</label>
+                  </div>
+                  <i class="bi toggle-password"
+                     [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+                     (click)="togglePassword()"></i>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="col-md-6 mb-3 position-relative">
+                  <div class="form-floating">
+                    <input [type]="showConfirmPassword ? 'text' : 'password'"
+                           class="form-control"
+                           placeholder="Confirm Password">
+                    <label><i class="bi bi-shield-lock me-2"></i>Confirm Password</label>
+                  </div>
+                  <i class="bi toggle-password"
+                     [ngClass]="showConfirmPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+                     (click)="toggleConfirmPassword()"></i>
+                </div>
+
+              </div>
+
+              <!-- Terms -->
+              <div class="form-check mb-3 small">
+                <input type="checkbox" class="form-check-input me-2">
+                I agree to the <a href="#">Terms & Conditions</a>
+              </div>
+
+              <!-- Submit -->
+              <button class="btn btn-primary w-100 register-btn">
+                <i class="bi bi-person-check me-2"></i>
+                Register Account
+              </button>
+
+              <!-- Redirect -->
+              <div class="text-center mt-4 small">
+                Already have an account?
+                <a routerLink="/login" class="fw-bold">Login</a>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  isDark = false;
+
+  toggleTheme() {
+    this.isDark = !this.isDark;
+    document.body.classList.toggle('bg-dark');
+    document.body.classList.toggle('text-white');
+  }
+
 }
+

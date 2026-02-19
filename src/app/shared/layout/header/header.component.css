@@ -1,0 +1,11 @@
+.navbar {
+  height: 65px;
+}
+
+.input-group input:focus {
+  box-shadow: none;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+}

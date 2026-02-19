@@ -19,6 +19,10 @@ import { SalesComponent } from './features/sales/sales.component';
 import { UsersComponent } from './features/users/users.component';
 import { ReportsComponent } from './features/reports/reports.component';
 import { PurchasesComponent } from './features/purchases/purchases.component';
+import { LoginComponent } from './features/auth/login/login.component';
+import { RegisterComponent } from './features/auth/register/register.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+
 
 
 providers: [
@@ -40,7 +44,8 @@ providers: [
     CategoryComponent,
     SalesComponent,
     UsersComponent,
-    ReportsComponent
+    ReportsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,9 @@ providers: [
     CustomerComponent,
     ProductComponent,
     SupplierComponent,
-    PurchasesComponent
+    PurchasesComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

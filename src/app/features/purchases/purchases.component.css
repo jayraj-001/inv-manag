@@ -1,0 +1,19 @@
+.custom-modal {
+  background: rgba(0,0,0,0.5);
+}
+
+.product-card {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+.card-header {
+  border-radius: 12px 12px 0 0;
+  font-weight: 600;
+}
